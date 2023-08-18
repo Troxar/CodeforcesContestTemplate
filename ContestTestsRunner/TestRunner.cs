@@ -38,12 +38,14 @@ namespace ContestTestsRunner
                 {
                     string? expectedLine = null;
                     string? actualLine = null;
+                    int lineNumber = 1;
 
                     while (!expectedReader.EndOfStream
                         && !actualReader.EndOfStream
-                        && (expectedLine = expectedReader.ReadLine()) == (actualLine = actualReader.ReadLine())) { }
+                        && (expectedLine = expectedReader.ReadLine()) == (actualLine = actualReader.ReadLine()))
+                        lineNumber++;
 
-                    Assert.Equal(expectedLine, actualLine);
+                    Assert.Equal($"Line {lineNumber}: {expectedLine}", $"Line {lineNumber}: {actualLine}");
                     Assert.True(expectedReader.EndOfStream, "Expected results file has more data than executor received");
                     Assert.True(actualReader.EndOfStream, "Executor received more data than expected results file contains");
                 }
