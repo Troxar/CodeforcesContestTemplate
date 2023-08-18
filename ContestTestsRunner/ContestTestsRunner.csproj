@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ContestExecutorLib\ContestExecutorLib.csproj" />
+    <ProjectReference Include="..\ContestConsoleApp\ContestConsoleApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

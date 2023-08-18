@@ -1,4 +1,4 @@
-using ContestExecutorLib;
+using ContestConsoleApp;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Text.RegularExpressions;
@@ -43,9 +43,9 @@ namespace ContestTestsRunner
                         && !actualReader.EndOfStream
                         && (expectedLine = expectedReader.ReadLine()) == (actualLine = actualReader.ReadLine())) { }
 
+                    Assert.Equal(expectedLine, actualLine);
                     Assert.True(expectedReader.EndOfStream, "Expected results file has more data than executor received");
                     Assert.True(actualReader.EndOfStream, "Executor received more data than expected results file contains");
-                    Assert.Equal(expectedLine, actualLine);
                 }
             }
         }
