@@ -75,6 +75,7 @@ namespace ContestTestsRunner
             var regex = new Regex(@"\\\d*$");
             return Directory.EnumerateFiles(_config.testSetsFolder)
                 .Where(fileName => regex.IsMatch(fileName))
+                .OrderBy(fileName => fileName)
                 .Select(fileName => new object[] { fileName, fileName + ".a" })
                 .GetEnumerator();
         }
